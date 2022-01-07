@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import org.greenrobot.eventbus.EventBus;
+
 public class MainActivity extends AppCompatActivity
 {
 
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 String userMessage = message.getText().toString();
+
+                EventBus.getDefault().post(new Messages(userMessage));
             }
         });
     }
